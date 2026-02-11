@@ -17,7 +17,7 @@ php -S localhost:8000 -t public
 Il cuore pulsante di SoccerBall è sviluppato in PHP 8.2 seguendo rigorosamente il paradigma Object Oriented Programming (OOP). 
 L'obiettivo principale è fornire un'infrastruttura solida per gestire la logica di un torneo a eliminazione diretta, esponendo i dati tramite API REST in formato JSON.
 
-- **Struttura del database**
+- **Struttura del database:**
 Il sistema utilizza PostgresSQL come motore di database. La struttura è stata progettata per garantire l'integrità dei dati attraverso:
     - **Vincoli di integrità:** Una squadra non può essere eliminata se ha già preso parte a tornei passati
     - **Relazioi complesse:** Utilizzo di chiavi esterne per collegare tornei, partite e squadre permettendo una navigazione dei dati fluida dal primo round alla finale
