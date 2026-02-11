@@ -28,8 +28,6 @@ Il sistema utilizza PostgresSQL come motore di database. La struttura è stata p
 - **Configura la connessione al database:** 
 su `config/` rinomina il file `database.example.php` in `database.php` e inserisci i dati necessari per collegare il DB al backend
 
-- **Configura le route** in `routes/index.php`
-
 
 ## 4. Struttura del Progetto
 
