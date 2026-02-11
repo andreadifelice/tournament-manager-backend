@@ -24,14 +24,14 @@ Il sistema utilizza PostgresSQL come motore di database. La struttura è stata p
 - **Vincoli di integrità:** Una squadra non può essere eliminata se ha già preso parte a tornei passati
 - **Relazioi complesse:** Utilizzo di chiavi esterne per collegare tornei, partite e squadre permettendo una navigazione dei dati fluida dal primo round alla finale
 
-
+## 3. Configurazione del database
 - **Configura la connessione al database:** 
 su `config/` rinomina il file `database.example.php` in `database.php` e inserisci i dati necessari per collegare il DB al backend
 
 - **Configura le route** in `routes/index.php`
 
 
-## 2. Struttura del Progetto
+## 4. Struttura del Progetto
 
 ```
 backend/
