@@ -1,5 +1,8 @@
 # Progetto backend: SoccerBall - sistema di gestione tornei di calcio
 
+## Repository clone
+https://github.com/andreadifelice/tournament-manager-backend.git
+
 ## Comandi Utili
 
 ```bash
