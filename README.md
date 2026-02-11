@@ -22,7 +22,7 @@ L'obiettivo principale è fornire un'infrastruttura solida per gestire la logica
 ## 2. Struttura del database:
 Il sistema utilizza PostgresSQL come motore di database. La struttura è stata progettata per garantire l'integrità dei dati attraverso:
 - **Vincoli di integrità:** Una squadra non può essere eliminata se ha già preso parte a tornei passati
-- **Relazioi complesse:** Utilizzo di chiavi esterne per collegare tornei, partite e squadre permettendo una navigazione dei dati fluida dal primo round alla finale
+- **Relazioni complesse:** Utilizzo di chiavi esterne per collegare tornei, partite e squadre permettendo una navigazione dei dati fluida dal primo round alla finale
 
 ## 3. Configurazione del database
 - **Configura la connessione al database:** 
