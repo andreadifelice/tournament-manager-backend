@@ -41,20 +41,20 @@ backend/
 │   ├── index.php                       # Definizione delle rotte
 │   ├── teams.php        
 │   ├── tournament_teams.php        
-│   ├── tournaments.php        
+│   └── tournaments.php        
 ├── public/
 │   └── index.php                       # Entry point
 ├── src/
 │   ├── bootstrap.php                   # Bootstrap dell'applicazione
 │   ├── Database/
-│   ├── ├── DB.php                      # Classe DB
+│   │   ├── DB.php                      # Classe DB
 │   │   └── JSONDB.php                  # Classe JSONDB
 │   ├── Models/
 │   │   ├── BaseModel.php               # Classe BaseModel
 │   │   ├── Game.php                    # Classe Game
 │   │   ├── Team.php                    # Classe Team
 │   │   ├── Tournament.php              # Classe Tournament
-│   │   ├── TournamentTeam.php          # Classe TournamentTeam
+│   │   └── TournamentTeam.php          # Classe TournamentTeam
 │   └── Utils/
 │       ├── Request.php                 # Classe Request
 │       └── Response.php                # Gestione risposte JSON
