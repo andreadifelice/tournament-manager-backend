@@ -51,7 +51,7 @@ Router::post('/tournaments', function () {
         $request = new Request();
         $data = $request->json();
 
-        // Aggiungo qui la validazione della data
+        // Se la data inserita non è quella odierna da errore di validazione
         if (isset($data['date'])) {
             $today = new \DateTime();
             $today->setTime(0, 0, 0);

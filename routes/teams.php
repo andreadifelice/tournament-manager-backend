@@ -9,6 +9,7 @@
 
 use App\Utils\Response;
 use App\Models\Team;
+use App\Models\TournamentTeam;
 use App\Utils\Request;
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
@@ -106,8 +107,8 @@ Router::delete('/teams/{id}', function($id) {
             Response::error('Squadra non trovata', Response::HTTP_NOT_FOUND)->send();
         }
 
-        // Verifico se la squadra è iscritta a qualche torneo
-        $registrations = \App\Models\TournamentTeam::where('team_id', '=', $id);
+        // Verifico se la squadra è iscritta o ha partecipato a qualche torneo
+        $registrations = TournamentTeam::where('team_id', '=', $id);
         if (!empty($registrations)) {
             Response::error('Impossibile eliminare la squadra perché partecipa o ha partecipato a uno o più tornei.', Response::HTTP_BAD_REQUEST)->send();
             return;

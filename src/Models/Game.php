@@ -52,8 +52,7 @@ class Game extends BaseModel {
         } else if ($team_b_score > $team_a_score) {
             $this->winner_id = $this->team_b_id;
         } else {
-            // In caso di pareggio, potresti gestirlo diversamente
-            // Per ora lo lascio null e basta
+            // In caso di pareggio è null
             throw new \Exception('Pareggio non consentito');
         }
         
@@ -61,7 +60,7 @@ class Game extends BaseModel {
     }
 
     /**
-     * Avanza il vincitore alla partita successiva (se esiste)
+     * Avanza il vincitore alla partita successiva
      */
     public function advanceWinner(): ?int {
         if (!$this->winner_id || !$this->next_match_id) {

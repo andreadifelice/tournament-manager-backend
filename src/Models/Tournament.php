@@ -33,7 +33,7 @@ class Tournament extends BaseModel {
 
     /**
      * Genera la struttura completa del bracket per il torneo
-     * Crea solo le partite del primo round
+     * Crea le partite del primo round generando gli abbinamenti casualmente
      * Le partite successive vengono create automaticamente quando i vincitori avanzano
      */
     public function generateFirstRound(): void {
@@ -112,7 +112,7 @@ class Tournament extends BaseModel {
             return;
         }
         
-        // Estrai i vincitori (mantieni gli indici originali per il mapping)
+        // Estrai i vincitori
         $winners = array_map(fn($g) => $g->winner_id, $games);
         
         // Crea le partite del prossimo round
@@ -140,11 +140,11 @@ class Tournament extends BaseModel {
         $nextGameIndex = 0;
         for ($i = 0; $i < count($games); $i += 2) {
             if (isset($previousRoundGames[$nextGameIndex])) {
-                // Collega la prima partita del pair
+                // Collega la prima partita
                 $games[$i]->next_match_id = $previousRoundGames[$nextGameIndex]->id;
                 $games[$i]->save();
                 
-                // Collega la seconda partita del pair (se esiste)
+                // Collega la seconda partita del pair 
                 if (isset($games[$i + 1])) {
                     $games[$i + 1]->next_match_id = $previousRoundGames[$nextGameIndex]->id;
                     $games[$i + 1]->save();
@@ -156,7 +156,7 @@ class Tournament extends BaseModel {
     }
 
     /**
-     * Restituisce il vincitore del torneo (se esiste)
+     * Restituisce il vincitore del torneo
      */
     public function getTournamentWinner(): ?int {
         $games = Game::where('tournament_id', '=', $this->id);
