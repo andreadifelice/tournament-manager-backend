@@ -13,7 +13,7 @@ composer dump-autoload
 php -S localhost:8000 -t public
 ```
 
-# 1. Architettura del progetto
+## 1. Architettura del progetto
 Il cuore pulsante di SoccerBall è sviluppato in PHP 8.2 seguendo rigorosamente il paradigma Object Oriented Programming (OOP). 
 L'obiettivo principale è fornire un'infrastruttura solida per gestire la logica di un torneo a eliminazione diretta, esponendo i dati tramite API REST in formato JSON.
 
