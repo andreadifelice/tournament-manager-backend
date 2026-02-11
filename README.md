@@ -1,49 +1,4 @@
-# Simple Rest API
-
-Template minimale per creare backend REST API in PHP
-
-## Installazione
-
-### Tramite Composer create-project
-
-```bash
-composer create-project codingspook/simple-rest-api nome-progetto
-```
-
-### Setup iniziale
-
-1. **Configura il web server** per puntare alla directory `public/` (se non è già configurato)
-
-2. **Configura la connessione al database** in `config/database.php`
-
-3. **Configura il CORS** in `config/cors.php`
-
-4. **Configura le route** in `routes/index.php`
-
-## Struttura del Progetto
-
-```
-nome-progetto/
-├── config/
-│   ├── database.php     # Configurazione database
-│   └── cors.php         # Configurazione CORS
-├── routes/
-│   └── index.php        # Definizione route
-├── public/
-│   └── index.php        # Entry point
-├── src/
-│   ├── bootstrap.php    # Bootstrap dell'applicazione
-│   ├── Database/
-│   ├── ├── DB.php              # Classe DB
-│   │   └── JSONDB.php          # Classe JSONDB
-│   ├── Models/
-│   │   └── BaseModel.php       # Classe BaseModel
-│   └── Utils/
-│       ├── Request.php         # Classe Request
-│       └── Response.php        # Gestione risposte JSON
-├── composer.json        # Dipendenze Composer
-└── README.md           # Questo file
-```
+# Progetto backend: SoccerBall - sistema di gestione tornei di calcio
 
 ## Comandi Utili
 
@@ -58,14 +13,51 @@ composer dump-autoload
 php -S localhost:8000 -t public
 ```
 
-## Licenza
+# 1. Architettura del progetto
+Il cuore pulsante di SoccerBall è sviluppato in PHP 8.2 seguendo rigorosamente il paradigma Object Oriented Programming (OOP). 
+L'obiettivo principale è fornire un'infrastruttura solida per gestire la logica di un torneo a eliminazione diretta, esponendo i dati tramite API REST in formato JSON.
 
-MIT
+- **Struttura del database**
+Il sistema utilizza PostgresSQL come motore di database. La struttura è stata progettata per garantire l'integrità dei dati attraverso:
+    - **Vincoli di integrità:** Una squadra non può essere eliminata se ha già preso parte a tornei passati
+    - **Relazioi complesse:** Utilizzo di chiavi esterne per collegare tornei, partite e squadre permettendo una navigazione dei dati fluida dal primo round alla finale
 
-## Supporto
 
-Per domande o problemi, consulta la documentazione o apri una issue sul repository.
+- **Configura la connessione al database:** 
+su `config/` rinomina il file `database.example.php` in `database.php` e inserisci i dati necessari per collegare il DB al backend
 
----
+- **Configura le route** in `routes/index.php`
 
-**Buon coding! 🚀**
+
+## 2. Struttura del Progetto
+
+```
+backend/
+├── config/
+│   ├── database.example.php            # Configurazione database
+│   └── cors.php                        # Configurazione CORS
+├── routes/                             
+│   ├── games.php         
+│   ├── index.php                       # Definizione delle rotte
+│   ├── teams.php        
+│   ├── tournament_teams.php        
+│   ├── tournaments.php        
+├── public/
+│   └── index.php                       # Entry point
+├── src/
+│   ├── bootstrap.php                   # Bootstrap dell'applicazione
+│   ├── Database/
+│   ├── ├── DB.php                      # Classe DB
+│   │   └── JSONDB.php                  # Classe JSONDB
+│   ├── Models/
+│   │   ├── BaseModel.php               # Classe BaseModel
+│   │   ├── Game.php                    # Classe Game
+│   │   ├── Team.php                    # Classe Team
+│   │   ├── Tournament.php              # Classe Tournament
+│   │   ├── TournamentTeam.php          # Classe TournamentTeam
+│   └── Utils/
+│       ├── Request.php                 # Classe Request
+│       └── Response.php                # Gestione risposte JSON
+├── composer.json                       # Dipendenze Composer
+└── README.md                           # Questo file
+```
